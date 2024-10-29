@@ -1,0 +1,55 @@
+name: upgrade-main
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    - cron: '0 14 * * *'
+
+jobs:
+  upgrade:
+    runs-on: ubuntu-latest
+    container:
+      image: jsii/superchain:1-bookworm-slim-node22
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+        with:
+          fetch-depth: 0
+          ref: main
+      - name: Install pnpm and dependencies
+        run: |
+          sudo corepack enable
+          sudo corepack prepare pnpm@latest --activate
+          pnpm install
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4.1.2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Update Deps
+        run: |
+          pnpm up --latest
+          git diff
+      - name: Create Pull Request
+        id: create-pr
+        uses: peter-evans/create-pull-request@v7.0.5
+        with:
+          token: ${{ secrets.P6_PGOLLUCCI_GH_TOKEN }}
+          commit-message: |-
+            chore(deps): upgrade dependencies
+
+            Upgrades project dependencies. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          branch: github-actions/upgrade-main
+          title: "chore(deps): upgrade dependencies"
+          labels: auto-approve
+          body: |-
+            Upgrades project dependencies. See details in [workflow run].
+
+            [Workflow Run]: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          author: github-actions <github-actions@github.com>
+          committer: github-actions <github-actions@github.com>
+          signoff: true

@@ -1,0 +1,10 @@
+!.jsii
+!.jsii.gz
+!assets/diagram.png
+.github
+assets
+cdk.out
+coverage
+dist
+lib
+node_modules

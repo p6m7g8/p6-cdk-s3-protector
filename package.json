@@ -1,0 +1,141 @@
+{
+  "name": "p6-cdk-s3-protector",
+  "description": "AWS CDK: A Real-Time S3 Protector",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/p6m7g8/p6-cdk-s3-protector.git"
+  },
+  "scripts": {
+    "act:build": "act --container-architecture linux/amd64 --container-daemon-socket - --container-options \"--memory 4g\" -j build",
+    "act:release": "act --container-architecture linux/amd64 --container-daemon-socket - --container-options \"--memory 4g\" -j release",
+    "build": "pnpm run ci:local && pnpm run jsii:pacmak:parallel",
+    "ci:both": "pnpm run compile && pnpm run lint && pnpm run jsii:docgen && pnpm run test",
+    "ci:gha": "pnpm run ci:both",
+    "ci:local": "pnpm run ci:both && pnpm run diagram:update",
+    "clean": "rm -rf dist/ lib/ cdk.out/ coverage/ .jsii",
+    "compile": "pnpm run tsc:compile && pnpm run jsii:compile",
+    "diagram:run": "pnpm run diagram:update && pnpm run diagram:serve",
+    "diagram:update": "pnpm run synth && pnpm run diagram:png && pnpm run diagram:cytoscape",
+    "diagram:cytoscape": "pnpm cdk-dia --target-path assets --rendering cytoscape-html -- ts-node bin/visualize.ts",
+    "diagram:png": "pnpm cdk-dia --target-path assets/diagram.png -- ts-node bin/visualize.ts",
+    "diagram:serve": "pnpm http-server assets -o",
+    "jsii:compile": "pnpm jsii compile --verbose -c tsconfig.dev.json",
+    "jsii:docgen": "pnpm jsii-docgen -v -o API.md",
+    "jsii:pacmak:dotnet": "pnpm jsii-pacmak --verbose --targets dotnet",
+    "jsii:pacmak:go": "pnpm jsii-pacmak --verbose --targets go",
+    "jsii:pacmak:java": "pnpm jsii-pacmak --verbose --targets java",
+    "jsii:pacmak:js": "pnpm jsii-pacmak --verbose --targets js",
+    "jsii:pacmak:parallel": "pnpm jsii-pacmak --verbose --parallel --targets dotnet,go,java,js,python",
+    "jsii:pacmak:py": "pnpm jsii-pacmak --verbose --targets python",
+    "lint:fix": "pnpm eslint . --fix",
+    "lint": "pnpm eslint .",
+    "nuke": "pnpm run clean && rm -rf node_modules/",
+    "publish": "pnpm run build && pnpm run publish:npm && pnpm run publish:pypi && pnpm run publish:maven && pnpm run publish:nuget && pnpm run publish:golang",
+    "publish:nuget": "pnpm publib-nuget",
+    "publish:golang": "pnpm publib-golang",
+    "publish:maven": "pnpm publib-maven",
+    "publish:npm": "pnpm publib-npm",
+    "publish:pypi": "pnpm publib-pypi",
+    "reset": "pnpm run nuke && rm -f pnpm-lock.yaml",
+    "synth": "pnpm cdk synth",
+    "test": "node --max-old-space-size=4096 --trace-deprecation ./node_modules/jest/bin/jest.js  --config jest.config.js --coverage --updateSnapshot",
+    "test:watch": "node --max-old-space-size=4096 --trace-deprecation ./node_modules/jest/bin/jest.js  --config jest.config.js --watch --coverage --updateSnapshot",
+    "tsc:compile": "pnpm tsc -p tsconfig.dev.json"
+  },
+  "author": {
+    "name": "Philip M. Gollucci",
+    "email": "pgollucci@p6m7g8.com",
+    "organization": true
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.8.0",
+    "@swc-node/register": "^1.10.9",
+    "@types/aws-lambda": "^8.10.145",
+    "@types/jest": "^29.5.14",
+    "@types/node": "22.8.2",
+    "@typescript-eslint/eslint-plugin": "^8.12.0",
+    "@typescript-eslint/parser": "^8.12.0",
+    "aws-cdk": "^2.164.1",
+    "aws-cdk-lib": "2.164.1",
+    "cdk-dia": "^0.11.0",
+    "constructs": "10.4.2",
+    "esbuild": "^0.24.0",
+    "eslint": "^9.13.0",
+    "eslint-plugin-import": "^2.31.0",
+    "http-server": "^14.1.1",
+    "jest": "^29.7.0",
+    "jsii": "^5.5.4",
+    "jsii-diff": "^1.104.0",
+    "jsii-docgen": "^10.5.5",
+    "jsii-pacmak": "^1.104.0",
+    "publib": "^0.2.906",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.6.3"
+  },
+  "peerDependencies": {
+    "aws-cdk-lib": "2.164.1",
+    "constructs": "^10.4.2"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.679.0",
+    "@aws-sdk/client-s3-control": "^3.679.0",
+    "@aws-sdk/client-sts": "^3.679.0",
+    "@types/aws-lambda": "^8.10.145",
+    "aws-cdk-lib": "2.164.1",
+    "aws-sdk": "^2.1691.0",
+    "cdk-iam-floyd": "^0.658.0",
+    "constructs": "^10.4.2",
+    "source-map-support": "^0.5.21",
+    "winston": "^3.15.0"
+  },
+  "bundledDependencies": [
+    "@aws-sdk/client-s3",
+    "@aws-sdk/client-s3-control",
+    "@aws-sdk/client-sts",
+    "@types/aws-lambda",
+    "aws-sdk",
+    "cdk-iam-floyd",
+    "source-map-support",
+    "winston"
+  ],
+  "keywords": [
+    "aws",
+    "cdk",
+    "s3",
+    "security",
+    "compliance"
+  ],
+  "main": "lib/index.js",
+  "types": "src/index.d.ts",
+  "license": "Apache-2.0",
+  "version": "0.0.0",
+  "jsii": {
+    "outdir": "dist",
+    "tsc": {
+      "outDir": "lib",
+      "rootDir": "src"
+    },
+    "targets": {
+      "java": {
+        "package": "com.github.p6m7g8.p6cds3protector",
+        "maven": {
+          "groupId": "com.github.p6m7g8",
+          "artifactId": "p6-cdk-s3-protector"
+        }
+      },
+      "python": {
+        "distName": "p6-cdk-s3-protector",
+        "module": "p6_cdk_s3_protector"
+      },
+      "dotnet": {
+        "namespace": "P6m7g8.P6CDKS3Protector",
+        "packageId": "P6m7g8.P6CDKS3Protector"
+      },
+      "go": {
+        "moduleName": "github.com/p6m7g8/p6-cdk-s3-protector"
+      }
+    }
+  },
+  "packageManager": "pnpm@9.12.3+sha512.cce0f9de9c5a7c95bef944169cc5dfe8741abfb145078c0d508b868056848a87c81e626246cb60967cbd7fd29a6c062ef73ff840d96b3c86c40ac92cf4a813ee"
+}
