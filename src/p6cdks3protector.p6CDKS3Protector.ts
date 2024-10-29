@@ -33,7 +33,7 @@ interface S3Event {
   }
 }
 
-function smileShortCircuitShould(event: S3Event): boolean {
+function p6ShortCircuitShould(event: S3Event): boolean {
   if (event.detail.requestParameters['x-amz-acl']) {
     logger.info('ACL is currently %s', event.detail.requestParameters['x-amz-acl'][0])
     if (event.detail.requestParameters['x-amz-acl'][0] === 'private') {
@@ -44,7 +44,7 @@ function smileShortCircuitShould(event: S3Event): boolean {
   return false
 }
 
-function smileLoopPrevent(event: S3Event): boolean {
+function p6LoopPrevent(event: S3Event): boolean {
   if (event.detail.errorCode || event.detail.errorMessage) {
     logger.info('Previous API call resulted in an error. Ending')
     return true
@@ -52,7 +52,7 @@ function smileLoopPrevent(event: S3Event): boolean {
   return false
 }
 
-async function smileS3BucketAclGet(event: S3Event): Promise<GetBucketAclOutput | false> {
+async function p6S3BucketAclGet(event: S3Event): Promise<GetBucketAclOutput | false> {
   try {
     const bucketName = event.detail.requestParameters.bucketName
     logger.info('Describing the current ACL: s3://%s', bucketName)
@@ -66,7 +66,7 @@ async function smileS3BucketAclGet(event: S3Event): Promise<GetBucketAclOutput |
   }
 }
 
-function smileLogDeliveryPreserve(bucketAcl: GetBucketAclOutput): [string, Grant[]] {
+function p6LogDeliveryPreserve(bucketAcl: GetBucketAclOutput): [string, Grant[]] {
   let uriList = ''
   const preserveLogDelivery: Grant[] = []
 
@@ -83,7 +83,7 @@ function smileLogDeliveryPreserve(bucketAcl: GetBucketAclOutput): [string, Grant
   return [uriList, preserveLogDelivery]
 }
 
-function smileS3BucketAclViolation(uriList: string): boolean {
+function p6S3BucketAclViolation(uriList: string): boolean {
   if (uriList.includes('AllUsers') || uriList.includes('AuthenticatedUsers')) {
     logger.info('Violation found.  Grant ACL greater than Private')
     return true
@@ -92,7 +92,7 @@ function smileS3BucketAclViolation(uriList: string): boolean {
   return false
 }
 
-async function smileS3BucketAclCorrect(bucketAcl: GetBucketAclOutput, preserveLogDelivery: Array<Grant> | false): Promise<void> {
+async function p6S3BucketAclCorrect(bucketAcl: GetBucketAclOutput, preserveLogDelivery: Array<Grant> | false): Promise<void> {
   logger.info('Attempting Automatic Resolution')
   try {
     if (preserveLogDelivery) {
@@ -139,24 +139,24 @@ async function smileS3BucketAclCorrect(bucketAcl: GetBucketAclOutput, preserveLo
   }
 }
 
-async function smileS3PublicBucketAcl(event: S3Event): Promise<boolean> {
-  if (smileShortCircuitShould(event)) {
+async function p6S3PublicBucketAcl(event: S3Event): Promise<boolean> {
+  if (p6ShortCircuitShould(event)) {
     return true
   }
 
-  if (smileLoopPrevent(event)) {
+  if (p6LoopPrevent(event)) {
     return true
   }
 
-  const bucketAcl = await smileS3BucketAclGet(event)
+  const bucketAcl = await p6S3BucketAclGet(event)
   if (!bucketAcl) {
     return false
   }
 
-  const [uriList, preserveLogDelivery] = smileLogDeliveryPreserve(bucketAcl)
+  const [uriList, preserveLogDelivery] = p6LogDeliveryPreserve(bucketAcl)
 
-  if (smileS3BucketAclViolation(uriList)) {
-    await smileS3BucketAclCorrect(bucketAcl, preserveLogDelivery)
+  if (p6S3BucketAclViolation(uriList)) {
+    await p6S3BucketAclCorrect(bucketAcl, preserveLogDelivery)
     return true
   }
 
@@ -187,7 +187,7 @@ async function awsMakePrivate(bucket: string, key: string): Promise<void> {
   await s3Client.putObjectAcl({ Bucket: bucket, Key: key, ACL: 'private' })
 }
 
-async function smileS3PublicBucketObjectAcl(event: S3Event): Promise<void> {
+async function p6S3PublicBucketObjectAcl(event: S3Event): Promise<void> {
   const key = event.detail.requestParameters.key
   const bucket = event.detail.requestParameters.bucketName
 
@@ -196,7 +196,7 @@ async function smileS3PublicBucketObjectAcl(event: S3Event): Promise<void> {
   }
 }
 
-async function smileS3PublicBucketAccessBlock(event: S3Event): Promise<void> {
+async function p6S3PublicBucketAccessBlock(event: S3Event): Promise<void> {
   const pbc = event.detail.requestParameters.PublicAccessBlockConfiguration
   logger.info(JSON.stringify(pbc))
 
@@ -218,7 +218,7 @@ async function smileS3PublicBucketAccessBlock(event: S3Event): Promise<void> {
   }
 }
 
-async function smileS3PublicAccessBlock(event: S3Event): Promise<void> {
+async function p6S3PublicAccessBlock(event: S3Event): Promise<void> {
   const pbc = event.detail.requestParameters.PublicAccessBlockConfiguration
   logger.info(JSON.stringify(pbc))
 
@@ -241,7 +241,7 @@ async function smileS3PublicAccessBlock(event: S3Event): Promise<void> {
   }
 }
 
-async function smileS3PublicFusebox(event: S3Event): Promise<boolean> {
+async function p6S3PublicFusebox(event: S3Event): Promise<boolean> {
   if (!event.detail || !event.detail.eventName) {
     return false
   }
@@ -260,23 +260,23 @@ async function smileS3PublicFusebox(event: S3Event): Promise<boolean> {
   }
 
   if (eventName === 'PutBucketAcl') {
-    await smileS3PublicBucketAcl(event)
+    await p6S3PublicBucketAcl(event)
   }
   else if (eventName === 'PutObjectAcl') {
-    await smileS3PublicBucketObjectAcl(event)
+    await p6S3PublicBucketObjectAcl(event)
   }
   else if (eventName === 'PutBucketPublicAccessBlock') {
-    await smileS3PublicBucketAccessBlock(event)
+    await p6S3PublicBucketAccessBlock(event)
   }
   else if (eventName === 'PutAccountPublicAccessBlock') {
-    await smileS3PublicAccessBlock(event)
+    await p6S3PublicAccessBlock(event)
   }
 
   return true
 }
 
 export async function handler(event: S3Event, _context?: Context): Promise<boolean> {
-  await smileS3PublicFusebox(event)
+  await p6S3PublicFusebox(event)
   return true
 }
 
