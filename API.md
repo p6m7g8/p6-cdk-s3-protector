@@ -2,30 +2,30 @@
 
 ## Constructs <a name="Constructs" id="Constructs"></a>
 
-### P6CDKS3Protector <a name="P6CDKS3Protector" id="p6-cdk-namer.P6CDKS3Protector"></a>
+### P6CDKS3Protector <a name="P6CDKS3Protector" id="p6-cdk-s3-protector.P6CDKS3Protector"></a>
 
-#### Initializers <a name="Initializers" id="p6-cdk-namer.P6CDKS3Protector.Initializer"></a>
+#### Initializers <a name="Initializers" id="p6-cdk-s3-protector.P6CDKS3Protector.Initializer"></a>
 
 ```typescript
-import { P6CDKS3Protector } from 'p6-cdk-namer'
+import { P6CDKS3Protector } from 'p6-cdk-s3-protector'
 
 new P6CDKS3Protector(scope: Construct, id: string)
 ```
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#p6-cdk-namer.P6CDKS3Protector.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
-| <code><a href="#p6-cdk-namer.P6CDKS3Protector.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#p6-cdk-s3-protector.P6CDKS3Protector.Initializer.parameter.scope">scope</a></code> | <code>constructs.Construct</code> | *No description.* |
+| <code><a href="#p6-cdk-s3-protector.P6CDKS3Protector.Initializer.parameter.id">id</a></code> | <code>string</code> | *No description.* |
 
 ---
 
-##### `scope`<sup>Required</sup> <a name="scope" id="p6-cdk-namer.P6CDKS3Protector.Initializer.parameter.scope"></a>
+##### `scope`<sup>Required</sup> <a name="scope" id="p6-cdk-s3-protector.P6CDKS3Protector.Initializer.parameter.scope"></a>
 
 - *Type:* constructs.Construct
 
 ---
 
-##### `id`<sup>Required</sup> <a name="id" id="p6-cdk-namer.P6CDKS3Protector.Initializer.parameter.id"></a>
+##### `id`<sup>Required</sup> <a name="id" id="p6-cdk-s3-protector.P6CDKS3Protector.Initializer.parameter.id"></a>
 
 - *Type:* string
 
@@ -35,12 +35,12 @@ new P6CDKS3Protector(scope: Construct, id: string)
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#p6-cdk-namer.P6CDKS3Protector.toString">toString</a></code> | Returns a string representation of this construct. |
-| <code><a href="#p6-cdk-namer.P6CDKS3Protector.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
+| <code><a href="#p6-cdk-s3-protector.P6CDKS3Protector.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#p6-cdk-s3-protector.P6CDKS3Protector.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 
 ---
 
-##### `toString` <a name="toString" id="p6-cdk-namer.P6CDKS3Protector.toString"></a>
+##### `toString` <a name="toString" id="p6-cdk-s3-protector.P6CDKS3Protector.toString"></a>
 
 ```typescript
 public toString(): string
@@ -48,7 +48,7 @@ public toString(): string
 
 Returns a string representation of this construct.
 
-##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="p6-cdk-namer.P6CDKS3Protector.applyRemovalPolicy"></a>
+##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="p6-cdk-s3-protector.P6CDKS3Protector.applyRemovalPolicy"></a>
 
 ```typescript
 public applyRemovalPolicy(policy: RemovalPolicy): void
@@ -64,7 +64,7 @@ to be replaced.
 The resource can be deleted (`RemovalPolicy.DESTROY`), or left in your AWS
 account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
-###### `policy`<sup>Required</sup> <a name="policy" id="p6-cdk-namer.P6CDKS3Protector.applyRemovalPolicy.parameter.policy"></a>
+###### `policy`<sup>Required</sup> <a name="policy" id="p6-cdk-s3-protector.P6CDKS3Protector.applyRemovalPolicy.parameter.policy"></a>
 
 - *Type:* aws-cdk-lib.RemovalPolicy
 
@@ -74,16 +74,16 @@ account for data recovery and cleanup later (`RemovalPolicy.RETAIN`).
 
 | **Name** | **Description** |
 | --- | --- |
-| <code><a href="#p6-cdk-namer.P6CDKS3Protector.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
-| <code><a href="#p6-cdk-namer.P6CDKS3Protector.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
-| <code><a href="#p6-cdk-namer.P6CDKS3Protector.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
+| <code><a href="#p6-cdk-s3-protector.P6CDKS3Protector.isConstruct">isConstruct</a></code> | Checks if `x` is a construct. |
+| <code><a href="#p6-cdk-s3-protector.P6CDKS3Protector.isOwnedResource">isOwnedResource</a></code> | Returns true if the construct was created by CDK, and false otherwise. |
+| <code><a href="#p6-cdk-s3-protector.P6CDKS3Protector.isResource">isResource</a></code> | Check whether the given construct is a Resource. |
 
 ---
 
-##### `isConstruct` <a name="isConstruct" id="p6-cdk-namer.P6CDKS3Protector.isConstruct"></a>
+##### `isConstruct` <a name="isConstruct" id="p6-cdk-s3-protector.P6CDKS3Protector.isConstruct"></a>
 
 ```typescript
-import { P6CDKS3Protector } from 'p6-cdk-namer'
+import { P6CDKS3Protector } from 'p6-cdk-s3-protector'
 
 P6CDKS3Protector.isConstruct(x: any)
 ```
@@ -104,7 +104,7 @@ library can be accidentally installed, and `instanceof` will behave
 unpredictably. It is safest to avoid using `instanceof`, and using
 this type-testing method instead.
 
-###### `x`<sup>Required</sup> <a name="x" id="p6-cdk-namer.P6CDKS3Protector.isConstruct.parameter.x"></a>
+###### `x`<sup>Required</sup> <a name="x" id="p6-cdk-s3-protector.P6CDKS3Protector.isConstruct.parameter.x"></a>
 
 - *Type:* any
 
@@ -112,33 +112,33 @@ Any object.
 
 ---
 
-##### `isOwnedResource` <a name="isOwnedResource" id="p6-cdk-namer.P6CDKS3Protector.isOwnedResource"></a>
+##### `isOwnedResource` <a name="isOwnedResource" id="p6-cdk-s3-protector.P6CDKS3Protector.isOwnedResource"></a>
 
 ```typescript
-import { P6CDKS3Protector } from 'p6-cdk-namer'
+import { P6CDKS3Protector } from 'p6-cdk-s3-protector'
 
 P6CDKS3Protector.isOwnedResource(construct: IConstruct)
 ```
 
 Returns true if the construct was created by CDK, and false otherwise.
 
-###### `construct`<sup>Required</sup> <a name="construct" id="p6-cdk-namer.P6CDKS3Protector.isOwnedResource.parameter.construct"></a>
+###### `construct`<sup>Required</sup> <a name="construct" id="p6-cdk-s3-protector.P6CDKS3Protector.isOwnedResource.parameter.construct"></a>
 
 - *Type:* constructs.IConstruct
 
 ---
 
-##### `isResource` <a name="isResource" id="p6-cdk-namer.P6CDKS3Protector.isResource"></a>
+##### `isResource` <a name="isResource" id="p6-cdk-s3-protector.P6CDKS3Protector.isResource"></a>
 
 ```typescript
-import { P6CDKS3Protector } from 'p6-cdk-namer'
+import { P6CDKS3Protector } from 'p6-cdk-s3-protector'
 
 P6CDKS3Protector.isResource(construct: IConstruct)
 ```
 
 Check whether the given construct is a Resource.
 
-###### `construct`<sup>Required</sup> <a name="construct" id="p6-cdk-namer.P6CDKS3Protector.isResource.parameter.construct"></a>
+###### `construct`<sup>Required</sup> <a name="construct" id="p6-cdk-s3-protector.P6CDKS3Protector.isResource.parameter.construct"></a>
 
 - *Type:* constructs.IConstruct
 
@@ -148,13 +148,13 @@ Check whether the given construct is a Resource.
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
-| <code><a href="#p6-cdk-namer.P6CDKS3Protector.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
-| <code><a href="#p6-cdk-namer.P6CDKS3Protector.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
-| <code><a href="#p6-cdk-namer.P6CDKS3Protector.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
+| <code><a href="#p6-cdk-s3-protector.P6CDKS3Protector.property.node">node</a></code> | <code>constructs.Node</code> | The tree node. |
+| <code><a href="#p6-cdk-s3-protector.P6CDKS3Protector.property.env">env</a></code> | <code>aws-cdk-lib.ResourceEnvironment</code> | The environment this resource belongs to. |
+| <code><a href="#p6-cdk-s3-protector.P6CDKS3Protector.property.stack">stack</a></code> | <code>aws-cdk-lib.Stack</code> | The stack in which this resource is defined. |
 
 ---
 
-##### `node`<sup>Required</sup> <a name="node" id="p6-cdk-namer.P6CDKS3Protector.property.node"></a>
+##### `node`<sup>Required</sup> <a name="node" id="p6-cdk-s3-protector.P6CDKS3Protector.property.node"></a>
 
 ```typescript
 public readonly node: Node;
@@ -166,7 +166,7 @@ The tree node.
 
 ---
 
-##### `env`<sup>Required</sup> <a name="env" id="p6-cdk-namer.P6CDKS3Protector.property.env"></a>
+##### `env`<sup>Required</sup> <a name="env" id="p6-cdk-s3-protector.P6CDKS3Protector.property.env"></a>
 
 ```typescript
 public readonly env: ResourceEnvironment;
@@ -185,7 +185,7 @@ that might be different than the stack they were imported into.
 
 ---
 
-##### `stack`<sup>Required</sup> <a name="stack" id="p6-cdk-namer.P6CDKS3Protector.property.stack"></a>
+##### `stack`<sup>Required</sup> <a name="stack" id="p6-cdk-s3-protector.P6CDKS3Protector.property.stack"></a>
 
 ```typescript
 public readonly stack: Stack;

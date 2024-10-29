@@ -1,9 +1,9 @@
 {
-  "name": "p6-cdk-namer",
-  "description": "Sets the AWS IAM Account Alias with a Custom Resource",
+  "name": "p6-cdk-s3-protector",
+  "description": "AWS CDK: S3 a real-time protector",
   "repository": {
     "type": "git",
-    "url": "https://github.com/p6m7g8/p6-cdk-namer.git"
+    "url": "https://github.com/p6m7g8/p6-cdk-s3-protector.git"
   },
   "scripts": {
     "act:build": "act --container-architecture linux/amd64 --container-daemon-socket - --container-options \"--memory 4g\" -j build",
@@ -100,12 +100,11 @@
     "winston"
   ],
   "keywords": [
-    "account",
-    "alias",
     "aws",
     "cdk",
-    "iam",
-    "landing zone"
+    "s3",
+    "compliance",
+    "security"
   ],
   "main": "lib/index.js",
   "types": "src/index.d.ts",

@@ -1,6 +1,6 @@
-AWS CDK setups up a Custom Resource via Cloud Formation which sets the AWS IAM Account Alias
+AWS CDK: A real-time S3 protector
 
-# P6Namer
+# P6CDKS3Protector
 
 ## LICENSE
 
@@ -8,17 +8,14 @@ AWS CDK setups up a Custom Resource via Cloud Formation which sets the AWS IAM A
 
 ## Other
 
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/p6m7g8/p6-cdk-namer) ![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=p6m7g8_p6-cdk-namer&metric=alert_status) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/p6m7g8/p6-cdk-namer) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/p6m7g8/p6-cdk-namer)
+[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/p6m7g8/p6-cdk-s3-protector) ![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=p6m7g8_p6-cdk-s3-protector&metric=alert_status) ![GitHub commit activity](https://img.shields.io/github/commit-activity/y/p6m7g8/p6-cdk-s3-protector) ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/p6m7g8/p6-cdk-s3-protector)
 
 ## Usage
 
 ```ts
 ...
-import { P6Namer } from 'p6-cdk-namer';
-
-new P6Namer(this, 'AccountAlias', {
-  accountAlias: 'THE-ALIAS',
-});
+import { P6CDKS3Protector } from 'p6-cdk-s3-protector';
+new P6CDKS3Protector(this, 'p6S3CDKProtector')
 ```
 
 ## Architecture
