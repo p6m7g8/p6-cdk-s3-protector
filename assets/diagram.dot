@@ -1,0 +1,100 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "VisualizeStack" {
+    subgraph "cluster-SubGraph.VisualizeStack" {
+      graph [
+        label = "VisualizeStack",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#e4e4e4",
+      ];
+      subgraph "cluster-SubGraph.P6CDKS3Protector" {
+        graph [
+          label = "P6CDKS3Protector",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#d6d6d6",
+        ];
+        "VisualizeStack/P6CDKS3Protector/p6CDKS3Protector" [
+          label = " p6CDKS3Protector",
+          fontsize = 12,
+          image = "/Users/philip/.p6/p6m7g8/p6-cdk-s3-protector/node_modules/.pnpm/cdk-dia@0.11.0_@aws-cdk+cloud-assembly-schema@38.0.1_@aws-cdk+cx-api@1.204.0_@aws-cdk+cloud-a_jfuice6m4mq3crypw5nsefyri4/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.266,
+        ];
+        "VisualizeStack/P6CDKS3Protector/P6CDKS3Protector--CR" [
+          label = " CloudFormation\nCustomResource\nP6CDKS3Protector--CR",
+          fontsize = 12,
+          image = "/Users/philip/.p6/p6m7g8/p6-cdk-s3-protector/node_modules/.pnpm/cdk-dia@0.11.0_@aws-cdk+cloud-assembly-schema@38.0.1_@aws-cdk+cx-api@1.204.0_@aws-cdk+cloud-a_jfuice6m4mq3crypw5nsefyri4/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 1.2,
+          height = 1.898,
+        ];
+        "VisualizeStack/P6CDKS3Protector/P6CDKS3Protector--Provider/framework-onEvent" [
+          label = " framework-onEvent",
+          fontsize = 12,
+          image = "/Users/philip/.p6/p6m7g8/p6-cdk-s3-protector/node_modules/.pnpm/cdk-dia@0.11.0_@aws-cdk+cloud-assembly-schema@38.0.1_@aws-cdk+cx-api@1.204.0_@aws-cdk+cloud-a_jfuice6m4mq3crypw5nsefyri4/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_AWS-Lambda_64@5x.png",
+          imagescale = "true",
+          imagepos = "tc",
+          penwidth = "0",
+          shape = "node",
+          fixedsize = "true",
+          labelloc = "b",
+          width = 2,
+          height = 2.266,
+        ];
+      }
+    }
+  }
+  "VisualizeStack/P6CDKS3Protector/P6CDKS3Protector--Provider/framework-onEvent" -> "VisualizeStack/P6CDKS3Protector/p6CDKS3Protector" [
+    dir = "both",
+  ];
+}
