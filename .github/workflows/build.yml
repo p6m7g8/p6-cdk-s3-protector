@@ -1,0 +1,31 @@
+name: Build
+
+on:
+  pull_request: {}
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: jsii/superchain:1-bookworm-slim-node22
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.2.2
+      - name: Install pnpm and dependencies
+        run: |
+          sudo corepack enable
+          sudo corepack prepare pnpm@latest --activate
+          pnpm install
+      - name: Cache NPM dependencies
+        uses: actions/cache@v4.1.2
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Run build
+        run: pnpm run ci:gha
+      - name: Run Package
+        run: pnpm run jsii:pacmak:parallel

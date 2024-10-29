@@ -1,0 +1,6 @@
+.jsii
+coverage
+dist/
+lib/
+node_modules/
+cdk.out
