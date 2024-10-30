@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 # shellcheck shell=bash
 
@@ -24,8 +24,6 @@ main() {
     patch=0
   elif echo "$log_lines" | grep -q "fix"; then
     patch=$((patch + 1))
-  else
-    patch=$((patch + 1))
   fi
 
   local new_tag="$major.$minor.$patch"
@@ -34,8 +32,8 @@ main() {
   mkdir -p dist/
   echo $new_tag >dist/releasetag.txt
   echo "$log_lines" >dist/changelog.md
-  echo "New semantic version tag: $new_tag"
-  git diff
+  echo "Semantic version tag: $latest_tag -> $new_tag"
+  cat dist/changelog.md
 
   return 0
 }
