@@ -22,7 +22,13 @@ jobs:
           types: |-
             chore
             ci
+            docs
             feat
             fix
-            merge queue
+            major
+            perf
+            refactor
+            revert
+            style
+            test
           requireScope: false

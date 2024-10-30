@@ -1,6 +1,7 @@
-.jsii
-coverage
+.yarn/
+coverage/
 dist/
 lib/
 node_modules/
 cdk.out
+.jsii
