@@ -30,6 +30,9 @@
     "src/**/*.ts"
   ],
   "exclude": [
-    "cdk.out"
+    "cdk.out/",
+    "node_modules/",
+    ".types-compat",
+    "tsconfig.dev.json"
   ]
 }
