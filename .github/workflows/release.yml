@@ -30,12 +30,13 @@ jobs:
         id: bump
         run: |
           bin/version.bash
-          if grep -qE "^[a-zA-Z]+!\:|^major|^feat|^fix" dist/changelog.md; then
+          if grep -E "^- (fix|feat|major)\!*" dist/changelog.md; then
             echo "bump=true" >> $GITHUB_OUTPUT
           else
             echo "bump=false" >> $GITHUB_OUTPUT
           fi
       - name: Github Release
+        if: ${{ steps.bump.outputs.bump == 'true' }}
         env:
           GITHUB_TOKEN: ${{ secrets.P6_A_GH_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
