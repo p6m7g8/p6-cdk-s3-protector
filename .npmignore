@@ -11,7 +11,7 @@ dist/
 src/
 test/
 node_modules/
-p6cdknamer/
+p6cdks3protector/
 .gitignore
 .mergify.yml
 .node-version
@@ -22,11 +22,3 @@ jest.config.js
 tsconfig.json
 tsconfig.dev.json
 yarn.lock
-
-
-# Exclude jsii outdir
-dist
-
-# Include .jsii and .jsii.gz
-!.jsii
-!.jsii.gz
