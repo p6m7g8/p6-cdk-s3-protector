@@ -3,7 +3,7 @@
 # shellcheck shell=bash
 
 main() {
-  local latest_tag=$(git describe --tags --abbrev=0 | sed -e 's,^.*/,,')
+  local latest_tag=$(git tag --list "v*" --sort=-v:refname | head -1)
 
   local major=$(echo $latest_tag | cut -d. -f1)
   local minor=$(echo $latest_tag | cut -d. -f2)
@@ -31,7 +31,7 @@ main() {
 
   mkdir -p dist/
   echo $new_tag >dist/releasetag.txt
-  echo "$log_lines" >dist/changelog.md
+  echo "$log_lines" | grep -v "chore(release):" >dist/changelog.md
   echo "Semantic version tag: $latest_tag -> $new_tag"
   cat dist/changelog.md
 
