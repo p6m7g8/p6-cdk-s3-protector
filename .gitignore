@@ -1,4 +1,7 @@
 .yarn/
+assets/
+!assets/diagram.dot
+!assets/diagram.png
 coverage/
 dist/
 lib/

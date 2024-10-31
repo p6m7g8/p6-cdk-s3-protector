@@ -24,6 +24,18 @@ main() {
     patch=0
   elif echo "$log_lines" | grep -q "fix"; then
     patch=$((patch + 1))
+  elif echo "$log_lines" | grep -q "chore"; then
+    patch=$((patch + 1))
+  else
+    true
+    # ci
+    # docs
+    # major
+    # perf
+    # refactor
+    # revert
+    # style
+    # test
   fi
 
   local new_tag="$major.$minor.$patch"

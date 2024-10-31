@@ -25,7 +25,7 @@
     "jsii:pacmak:go": "yarn jsii-pacmak --verbose --targets go",
     "jsii:pacmak:java": "yarn jsii-pacmak --verbose --targets java",
     "jsii:pacmak:js": "yarn jsii-pacmak --verbose --targets js",
-    "jsii:pacmak:parallel": "yarn jsii-pacmak --verbose --parallel --targets dotnet,go,java,js,python",
+    "jsii:pacmak:parallel": "yarn jsii-pacmak --verbose --parallel --targets dotnet,go,js,python",
     "jsii:pacmak:py": "yarn jsii-pacmak --verbose --targets python",
     "lint:fix": "yarn eslint . --fix",
     "lint": "yarn eslint .",
