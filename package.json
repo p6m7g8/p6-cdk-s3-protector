@@ -48,7 +48,7 @@
     "organization": true
   },
   "engines": {
-    "node": ">= 22.10.0"
+    "node": ">= 24.9.0"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^3.8.0",
@@ -77,7 +77,7 @@
     "typescript": "~5.6.3"
   },
   "peerDependencies": {
-    "aws-cdk-lib": "2.164.1",
+    "aws-cdk-lib": "2.165.0",
     "constructs": "^10.4.2"
   },
   "dependencies": {
