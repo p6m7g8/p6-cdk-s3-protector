@@ -4367,7 +4367,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aws-cdk-lib@npm:^2.201.0, aws-cdk-lib@npm:^2.219.0":
+"aws-cdk-lib@npm:^2.201.0":
   version: 2.219.0
   resolution: "aws-cdk-lib@npm:2.219.0"
   dependencies:
@@ -4388,6 +4388,30 @@ __metadata:
   peerDependencies:
     constructs: ^10.0.0
   checksum: 10c0/05cdd0da87475bedfdae40ab8772110c89af5c278e846e117a98db29df4b169c78f67eb2467e36a3a827531fc38124de6da95f4365f185c7c1419e62ae31f8d2
+  languageName: node
+  linkType: hard
+
+"aws-cdk-lib@npm:^2.220.0":
+  version: 2.220.0
+  resolution: "aws-cdk-lib@npm:2.220.0"
+  dependencies:
+    "@aws-cdk/asset-awscli-v1": "npm:2.2.242"
+    "@aws-cdk/asset-node-proxy-agent-v6": "npm:^2.1.0"
+    "@aws-cdk/cloud-assembly-schema": "npm:^48.6.0"
+    "@balena/dockerignore": "npm:^1.0.2"
+    case: "npm:1.6.3"
+    fs-extra: "npm:^11.3.1"
+    ignore: "npm:^5.3.2"
+    jsonschema: "npm:^1.5.0"
+    mime-types: "npm:^2.1.35"
+    minimatch: "npm:^3.1.2"
+    punycode: "npm:^2.3.1"
+    semver: "npm:^7.7.2"
+    table: "npm:^6.9.0"
+    yaml: "npm:1.10.2"
+  peerDependencies:
+    constructs: ^10.0.0
+  checksum: 10c0/046af5819be213bdaaf65f107787c82b70a37cad0b22e300532040326f6767f4fca4f217c287799ae2def81a272f5e99d7589e406ba381e72ebe2d806ef1ccc9
   languageName: node
   linkType: hard
 
@@ -9984,7 +10008,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^8.46.1"
     "@typescript-eslint/parser": "npm:^8.46.1"
     aws-cdk: "npm:^2.1030.0"
-    aws-cdk-lib: "npm:^2.219.0"
+    aws-cdk-lib: "npm:^2.220.0"
     aws-sdk: "npm:^2.1692.0"
     cdk-dia: "npm:^0.12.1"
     cdk-iam-floyd: "npm:^0.722.0"
@@ -10006,7 +10030,7 @@ __metadata:
     typescript: "npm:^5.9.3"
     winston: "npm:^3.18.3"
   peerDependencies:
-    aws-cdk-lib: 2.219.0
+    aws-cdk-lib: ^2.220.0
     constructs: ^10.4.2
   languageName: unknown
   linkType: soft
