@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "^6.0.0",
-    "@types/aws-lambda": "^8.10.155",
+    "@types/aws-lambda": "^8.10.156",
     "@types/jest": "^30.0.0",
     "@types/node": "^24.7.2",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
@@ -70,7 +70,7 @@
     "jsii-diff": "^1.116.0",
     "jsii-docgen": "^10.10.1",
     "jsii-pacmak": "^1.116.0",
-    "jsii-rosetta": "^5.9.8",
+    "jsii-rosetta": "^5.9.9",
     "publib": "^0.2.1024",
     "ts-jest": "^29.4.5",
     "ts-node": "^10.9.2",
@@ -81,10 +81,10 @@
     "constructs": "^10.4.2"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.910.0",
-    "@aws-sdk/client-s3-control": "^3.910.0",
-    "@aws-sdk/client-sts": "^3.910.0",
-    "@types/aws-lambda": "^8.10.155",
+    "@aws-sdk/client-s3": "^3.911.0",
+    "@aws-sdk/client-s3-control": "^3.911.0",
+    "@aws-sdk/client-sts": "^3.911.0",
+    "@types/aws-lambda": "^8.10.156",
     "aws-cdk-lib": "^2.220.0",
     "aws-sdk": "^2.1692.0",
     "cdk-iam-floyd": "^0.723.0",
