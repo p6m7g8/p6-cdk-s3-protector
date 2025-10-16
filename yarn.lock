@@ -4273,12 +4273,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^24.7.2":
-  version: 24.7.2
-  resolution: "@types/node@npm:24.7.2"
+"@types/node@npm:^24.8.0":
+  version: 24.8.0
+  resolution: "@types/node@npm:24.8.0"
   dependencies:
     undici-types: "npm:~7.14.0"
-  checksum: 10c0/03f662f10e4b89bc97016e067101cbabe55025b54c24afb581fb50992d5eeaaf417bdae34bbc668ae8759d3cdbbbadf35fc8b9b29d26f52ede2525d48e919e49
+  checksum: 10c0/6ba1a268dec49b46c3301193394bfe6203a8d44453e32d6666e5daa35d2b5251425e7ac81444edae4c7f5bd12feed3324eba338c52b5630b258ff0e5040cd646
   languageName: node
   linkType: hard
 
@@ -5499,16 +5499,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cdk-iam-floyd@npm:^0.723.0":
-  version: 0.723.0
-  resolution: "cdk-iam-floyd@npm:0.723.0"
+"cdk-iam-floyd@npm:^0.724.0":
+  version: 0.724.0
+  resolution: "cdk-iam-floyd@npm:0.724.0"
   dependencies:
     "@udondan/common-substrings": "npm:3.0.2"
     regex-parser: "npm:2.3.1"
   peerDependencies:
     aws-cdk-lib: ^2.0.0
     constructs: ^10.0.0
-  checksum: 10c0/3b7211ba7c7792b060fb05dc9c05e973dabafb8bf13a8a1e031071ab0bc137549513d6d57e08ac0ea8d498ae57ac006fdc529fa9650ddbc3581061266ac25857
+  checksum: 10c0/5f5f069ca3c3138509f0b6cbafefb73d967b46fdcaa2acb9ab296aeed3dc8513aa3e8c5eb0f6dccb3f0cd4c7c7b735234f13900946a58e7f118d290cb43ad804
   languageName: node
   linkType: hard
 
@@ -10690,14 +10690,14 @@ __metadata:
     "@aws-sdk/client-sts": "npm:^3.911.0"
     "@types/aws-lambda": "npm:^8.10.156"
     "@types/jest": "npm:^30.0.0"
-    "@types/node": "npm:^24.7.2"
+    "@types/node": "npm:^24.8.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.46.1"
     "@typescript-eslint/parser": "npm:^8.46.1"
     aws-cdk: "npm:^2.1030.0"
     aws-cdk-lib: "npm:^2.220.0"
     aws-sdk: "npm:^2.1692.0"
     cdk-dia: "npm:^0.12.1"
-    cdk-iam-floyd: "npm:^0.723.0"
+    cdk-iam-floyd: "npm:^0.724.0"
     constructs: "npm:^10.4.2"
     esbuild: "npm:^0.25.11"
     eslint: "npm:^9.37.0"
