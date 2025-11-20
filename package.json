@@ -81,9 +81,9 @@
     "constructs": "^10.4.2"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "^3.934.0",
-    "@aws-sdk/client-s3-control": "^3.934.0",
-    "@aws-sdk/client-sts": "^3.934.0",
+    "@aws-sdk/client-s3": "^3.936.0",
+    "@aws-sdk/client-s3-control": "^3.936.0",
+    "@aws-sdk/client-sts": "^3.936.0",
     "@types/aws-lambda": "^8.10.159",
     "aws-cdk-lib": "^2.225.0",
     "aws-sdk": "^2.1692.0",
