@@ -12,7 +12,7 @@ export class P6CDKS3Protector extends cdk.Resource {
     const policy = new floyd.Statement.S3().allow().toPutObject().toPutObjectAcl()
 
     const onEvent = new lambdajs.NodejsFunction(this, 'p6CDKS3Protector', {
-      runtime: lambda.Runtime.NODEJS_20_X,
+      runtime: lambda.Runtime.NODEJS_24_X,
       timeout: cdk.Duration.seconds(5), // Adjust timeout if necessary
       tracing: lambda.Tracing.ACTIVE,
       bundling: {
